@@ -37,7 +37,7 @@ const Register = () => {
   const storeData = async (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post('https://infinitycart.onrender.com/register', formData).then((response) => {
+    axios.post('https://infinity-cart.onrender.com/register', formData).then((response) => {
       if (response.data.message !== '' && response.data.type !== '' && response.data.type !== "Verify" && response.data.type !== 'Registration') {
         toast.warn(`${response.data.type} ${response.data.message}`, {
           position: 'top-right',

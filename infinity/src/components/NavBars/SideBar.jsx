@@ -12,7 +12,7 @@ const SideBar = (props) => {
   const token = cookies.get('token')
   useEffect(() => {
     const getDetails = async () => {
-      await axios.post("https://infinitycart.onrender.com/getUserInfo", { jwtToken: cookies.get('token') })
+      await axios.post("https://infinity-cart.onrender.com/getUserInfo", { jwtToken: cookies.get('token') })
         .then((response) => {
           setUserName(response.data.name)
         }).catch(err => {

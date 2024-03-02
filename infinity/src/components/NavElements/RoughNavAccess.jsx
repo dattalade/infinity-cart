@@ -38,13 +38,13 @@ const NavAccess = (props) => {
 
   useEffect(() => {
     const getAll = async () => {
-      await axios.post("https://infinitycart.onrender.com/getAll", { apparel: props.apparel }).then((response) => {
+      await axios.post("https://infinity-cart.onrender.com/getAll", { apparel: props.apparel }).then((response) => {
         setCartItems(response.data)
       }).catch(err => {
         console.log(err);
       });
 
-      await axios.post("https://infinitycart.onrender.com/getUserItems", { jwtToken: cookies.get('token') }).then((response) => {
+      await axios.post("https://infinity-cart.onrender.com/getUserItems", { jwtToken: cookies.get('token') }).then((response) => {
         setUsercart(prevusercart => ({
           ...prevusercart,
           userId: response.data.userId,
@@ -54,7 +54,7 @@ const NavAccess = (props) => {
         console.log(err);
       });
 
-      await axios.post("https://infinitycart.onrender.com/getWishlistItems", { jwtToken: cookies.get('token') }).then((response) => {
+      await axios.post("https://infinity-cart.onrender.com/getWishlistItems", { jwtToken: cookies.get('token') }).then((response) => {
         setUserWishlist(prevWishlist => ({
           ...prevWishlist,
           userId: response.data.userId,
@@ -119,7 +119,7 @@ const NavAccess = (props) => {
     }
     else {
       //cart added
-      axios.post("https://infinitycart.onrender.com/addToCart", { itemIdObject: itemId, userIdObject: usercart.userId, size: cartItems[itemIndex].defSize }).then((response) => {
+      axios.post("https://infinity-cart.onrender.com/addToCart", { itemIdObject: itemId, userIdObject: usercart.userId, size: cartItems[itemIndex].defSize }).then((response) => {
         setUsercart(prevusercart => ({
           ...prevusercart,
           usercartItems: response.data.usercartItems
@@ -175,7 +175,7 @@ const NavAccess = (props) => {
     }
     else {
       console.log(cartItems[0].defSize)
-      axios.post("https://infinitycart.onrender.com/arwishlist", { itemIdObject: itemId, userIdObject: userWishlist.userId, ar: e.target.checked }).then((response) => {
+      axios.post("https://infinity-cart.onrender.com/arwishlist", { itemIdObject: itemId, userIdObject: userWishlist.userId, ar: e.target.checked }).then((response) => {
         console.log(response.data)
         setUserWishlist(prevWishlist => ({
           ...prevWishlist,

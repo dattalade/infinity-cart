@@ -45,7 +45,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    axios.post('https://infinitycart.onrender.com/login', formData, 
+    axios.post('https://infinity-cart.onrender.com/login', formData, 
       // { 
       // headers: {
       //   'Access-Control-Allow-Origin': 'https://infinity-cart.vercel.app/',

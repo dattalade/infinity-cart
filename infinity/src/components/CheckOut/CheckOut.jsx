@@ -46,7 +46,7 @@ const CheckOut = () => {
 
   useEffect(() => {
     const getUserAddress = async () => {
-      await axios.post('https://infinitycart.onrender.com/getUserAddress', { jwtToken: cookies.get('token') })
+      await axios.post('https://infinity-cart.onrender.com/getUserAddress', { jwtToken: cookies.get('token') })
         .then((response) => {
           setUserAddress(prevAddress => ({
             ...prevAddress,
@@ -56,7 +56,7 @@ const CheckOut = () => {
         }).catch(err => {
           console.log(err);
         });
-      await axios.post('https://infinitycart.onrender.com/getCartInfo', { jwtToken: cookies.get('token') })
+      await axios.post('https://infinity-cart.onrender.com/getCartInfo', { jwtToken: cookies.get('token') })
         .then((response) => {
           if (response.data.usercartItems.length === 0)
             nav('/myCart')
@@ -253,7 +253,7 @@ const CheckOut = () => {
     }
     else {
       const addData = async () => {
-        await axios.post('https://infinitycart.onrender.com/addAddress', { deliveryData: deliveryData, userId: userAddress.userId })
+        await axios.post('https://infinity-cart.onrender.com/addAddress', { deliveryData: deliveryData, userId: userAddress.userId })
           .then((response) => {
             setUserAddress(prevAddress => ({
               ...prevAddress,
@@ -326,7 +326,7 @@ const CheckOut = () => {
     else {
       if (paymentType === 'cash') {
         const addOrder = async () => {
-          await axios.post('https://infinitycart.onrender.com/placecashorder', { userId: userAddress.userId, addressId: selectedAddress, costDetails: cost, paymentType: paymentType })
+          await axios.post('https://infinity-cart.onrender.com/placecashorder', { userId: userAddress.userId, addressId: selectedAddress, costDetails: cost, paymentType: paymentType })
             .then((response) => {
               nav(`/order-placed?order-id=${response.data.orderId}`)
             })
@@ -338,9 +338,9 @@ const CheckOut = () => {
       }
       else {
         const addOrder = async () => {
-          const response = await axios.post('https://infinitycart.onrender.com/create-order', { amount: cost.payCost + cost.shippingCost })
+          const response = await axios.post('https://infinity-cart.onrender.com/create-order', { amount: cost.payCost + cost.shippingCost })
           const { data } = response
-          const prefills = await axios.post('https://infinitycart.onrender.com/get-checkout-details', { userId: userAddress.userId, addressId: selectedAddress })
+          const prefills = await axios.post('https://infinity-cart.onrender.com/get-checkout-details', { userId: userAddress.userId, addressId: selectedAddress })
           console.log(response.data)
           const options = {
             key: 'rzp_test_byEpIl0N6kfEaV', // Your Razorpay Key ID
@@ -351,7 +351,7 @@ const CheckOut = () => {
             image: 'https://res.cloudinary.com/db8wetftg/image/upload/v1708709252/logo/infinity-logo.png',
             order_id: data.id,
             handler: async (response) => {
-              await axios.post("https://infinitycart.onrender.com/payment-verification",
+              await axios.post("https://infinity-cart.onrender.com/payment-verification",
                 {
                   razorpay_signature: response.razorpay_signature, razorpay_payment_id: response.razorpay_payment_id,
                   razorpay_order_id: response.razorpay_order_id, userId: userAddress.userId, addressId: selectedAddress,

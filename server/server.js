@@ -124,7 +124,7 @@ app.post('/register', async (req, res) => {
     }
 
     const tokens = jwt.sign({ email: userData.email }, SECRET_KEY, { expiresIn: '1h' });
-    const verificationLink = `https://infinitycart.onrender.com/verify?token=${tokens}`;
+    const verificationLink = `https://infinity-cart.onrender.com/verify?token=${tokens}`;
 
     const mailOptions =
     {

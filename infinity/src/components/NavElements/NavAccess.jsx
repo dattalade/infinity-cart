@@ -29,14 +29,14 @@ const NavAccess = (props) => {
 
   useEffect(() => {
     const getAll = async () => {
-      await axios.post("https://infinitycart.onrender.com/getAll", { apparel: props.apparel })
+      await axios.post("https://infinity-cart.onrender.com/getAll", { apparel: props.apparel })
         .then((response) => {
           setInfinityCartCollections(response.data)
         }).catch(err => {
           console.log(err);
         });
 
-      await axios.post("https://infinitycart.onrender.com/getWishlistItems", { jwtToken: cookies.get('token') })
+      await axios.post("https://infinity-cart.onrender.com/getWishlistItems", { jwtToken: cookies.get('token') })
         .then((response) => {
           setUserWishlist(prevWishlist => ({
             ...prevWishlist,
@@ -82,7 +82,7 @@ const NavAccess = (props) => {
     }
     else {
       console.log(infinityCartCollections[0].defSize)
-      axios.post("https://infinitycart.onrender.com/arwishlist", { itemIdObject: itemId, userIdObject: userWishlist.userId, ar: e.target.checked }).then((response) => {
+      axios.post("https://infinity-cart.onrender.com/arwishlist", { itemIdObject: itemId, userIdObject: userWishlist.userId, ar: e.target.checked }).then((response) => {
         console.log(response.data)
         setUserWishlist(prevWishlist => ({
           ...prevWishlist,

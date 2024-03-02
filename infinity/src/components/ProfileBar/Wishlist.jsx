@@ -20,7 +20,7 @@ const Wishlist = () => {
 
   useEffect(() => {
     const getUserWish = async () => {
-      await axios.post("https://infinitycart.onrender.com/getUserWishlist", { jwtToken: cookies.get('token') })
+      await axios.post("https://infinity-cart.onrender.com/getUserWishlist", { jwtToken: cookies.get('token') })
         .then((response) => {
           setUserWishlist((prevUserWishlist) => ({
             ...prevUserWishlist,
@@ -37,7 +37,7 @@ const Wishlist = () => {
   const moveToCart = (itemId, apparel) => {
     // console.log(itemId)
     const addCart = async () => {
-      await axios.post("https://infinitycart.onrender.com/addBasic", { userId: userWishlist.userId, itemId: itemId, apparel: apparel })
+      await axios.post("https://infinity-cart.onrender.com/addBasic", { userId: userWishlist.userId, itemId: itemId, apparel: apparel })
         .then((response) => {
           setUserWishlist((prevUserWishlist) => ({
             ...prevUserWishlist,

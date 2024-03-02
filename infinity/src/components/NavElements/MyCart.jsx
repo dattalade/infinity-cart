@@ -41,7 +41,7 @@ const MyCart = () => {
 
   useEffect(() => {
     const getAll = async () => {
-      await axios.post("https://infinitycart.onrender.com/getCartInfo", { jwtToken: cookies.get('token') }).then((response) => {
+      await axios.post("https://infinity-cart.onrender.com/getCartInfo", { jwtToken: cookies.get('token') }).then((response) => {
         setUsercart(prevusercart => ({
           ...prevusercart,
           userId: response.data.userId,
@@ -59,7 +59,7 @@ const MyCart = () => {
 
   const saveQuantity = (index, id, operation) => {
     const getCart = async () => {
-      await axios.post("https://infinitycart.onrender.com/updateQuantity", { userId: usercart.userId, itemId: id, updatedQuantity: operation, index: index }).then((response) => {
+      await axios.post("https://infinity-cart.onrender.com/updateQuantity", { userId: usercart.userId, itemId: id, updatedQuantity: operation, index: index }).then((response) => {
         setUsercart(prevUsercart => {
           const newUserCart = { ...prevUsercart };
           const newUserCartItems = [...prevUsercart.usercartItems];
@@ -83,7 +83,7 @@ const MyCart = () => {
 
   const removeItem = (itemId, selectedSize) => {
     const getCart = async () => {
-      await axios.post("https://infinitycart.onrender.com/removeItem", { userId: usercart.userId, itemId: itemId, size: selectedSize }).then((response) => {
+      await axios.post("https://infinity-cart.onrender.com/removeItem", { userId: usercart.userId, itemId: itemId, size: selectedSize }).then((response) => {
         setUsercart(prevusercart => ({
           ...prevusercart,
           usercartItems: response.data.usercartItems,

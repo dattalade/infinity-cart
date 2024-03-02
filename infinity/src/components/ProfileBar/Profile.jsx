@@ -36,7 +36,7 @@ const Profile = () => {
   useEffect(() => {
 
     const getDetails = async () => {
-      await axios.post("https://infinitycart.onrender.com/getUserInfo", { jwtToken: cookies.get('token') })
+      await axios.post("https://infinity-cart.onrender.com/getUserInfo", { jwtToken: cookies.get('token') })
         .then((response) => {
           setUserDetails(response.data)
           setEdit(response.data);
@@ -150,7 +150,7 @@ const Profile = () => {
     }
     else {
       const update = async () => {
-        await axios.post('https://infinitycart.onrender.com/updateUserDetails', edit)
+        await axios.post('https://infinity-cart.onrender.com/updateUserDetails', edit)
           .then((response) => {
             setUserDetails(response.data);
             setEdit(response.data);

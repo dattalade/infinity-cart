@@ -44,7 +44,7 @@ const ProductDisplay = () => {
 
   useEffect(() => {
     const getProductDetails = async () => {
-      await axios.post("https://infinitycart.onrender.com/specificProduct", { id: itemId })
+      await axios.post("https://infinity-cart.onrender.com/specificProduct", { id: itemId })
         .then((response) => {
           // console.log(response.data)
           setProduct(response.data)
@@ -58,7 +58,7 @@ const ProductDisplay = () => {
         .catch(err => {
           console.log(err);
         });
-      await axios.post("https://infinitycart.onrender.com/isWishlist", { id: itemId, jwtToken: cookies.get('token') })
+      await axios.post("https://infinity-cart.onrender.com/isWishlist", { id: itemId, jwtToken: cookies.get('token') })
         .then((response) => {
           // console.log(response.data)
           setIsWishlist(response.data)
@@ -66,7 +66,7 @@ const ProductDisplay = () => {
         .catch(err => {
           console.log(err);
         });
-      await axios.post("https://infinitycart.onrender.com/getProductCart", { id: itemId, jwtToken: cookies.get('token') })
+      await axios.post("https://infinity-cart.onrender.com/getProductCart", { id: itemId, jwtToken: cookies.get('token') })
         .then((response) => {
           setUsercart(prevusercart => ({
             ...prevusercart,
@@ -92,7 +92,7 @@ const ProductDisplay = () => {
   }, [itemId, sizeClick, apparel])
 
   const makeWishlist = async () => {
-    await axios.post("https://infinitycart.onrender.com/makeWishlist", { id: itemId, jwtToken: cookies.get('token') })
+    await axios.post("https://infinity-cart.onrender.com/makeWishlist", { id: itemId, jwtToken: cookies.get('token') })
       .then((response) => {
         console.log(response.data)
         setIsWishlist(response.data)
@@ -167,7 +167,7 @@ const ProductDisplay = () => {
           });
       }
       else {
-        axios.post('https://infinitycart.onrender.com/addProductToCart', { size: sizeClick, userId: usercart.userId, itemId: itemId })
+        axios.post('https://infinity-cart.onrender.com/addProductToCart', { size: sizeClick, userId: usercart.userId, itemId: itemId })
           .then((response) => {
             setUsercart(prevusercart => ({
               ...prevusercart,
@@ -195,7 +195,7 @@ const ProductDisplay = () => {
       }
     }
     else {
-      axios.post('https://infinitycart.onrender.com/addProductToCart', { userId: usercart.userId, itemId: itemId })
+      axios.post('https://infinity-cart.onrender.com/addProductToCart', { userId: usercart.userId, itemId: itemId })
         .then((response) => {
           setUsercart(prevusercart => ({
             ...prevusercart,

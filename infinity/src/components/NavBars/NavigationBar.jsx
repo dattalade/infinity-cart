@@ -17,7 +17,7 @@ const NavigationBar = (props) => {
     },
   });
   useEffect(() => {
-    axios.post("https://infinitycart.onrender.com/getUserItems", { jwtToken: cookie.get('token') }).then((response) => {
+    axios.post("https://infinity-cart.onrender.com/getUserItems", { jwtToken: cookie.get('token') }).then((response) => {
       setCartSize(response.data.usercartItems.length);
     })
       .catch(err => {
