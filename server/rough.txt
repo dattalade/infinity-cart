@@ -1,0 +1,57 @@
+const express = require('express');
+const fs = require('fs');
+const ejs = require('ejs');
+const mongoose = require('mongoose');
+const nodemailer = require('nodemailer')
+const cors = require('cors');
+const path = require('path');
+const app = express();
+const PORT = 3500;
+
+app.use(cors());
+app.use(express.json());
+
+const uri = 'mongodb+srv://dattalade:dattalade@cluster0.fade8bn.mongodb.net/infinity?retryWrites=true&w=majority'
+mongoose.connect(uri);
+console.log('Connected to the database');
+
+const transporter = nodemailer.createTransport
+  ({
+    service: 'gmail',
+    auth: {
+      user: '2100031692cseh@gmail.com',
+      pass: 'snkriyvximcvsuqa',
+    },
+  });
+
+app.post("/sendMail", async (req, res) => {
+
+  const template = fs.readFileSync('./Compiler.ejs', 'utf-8');
+  const data = 10
+  ejs.renderFile(path.join(__dirname, './Compiler.ejs'), { data }, (err, html) => {
+    console.log(template)
+
+    if (err) {
+      console.error('Error rendering template:', err.message);
+    }
+    else {
+      const mailOptions = {
+        from: '2100031692cseh@gmail.com', // sender address
+        to: 'dattarohith040@gmail.com', // list of receivers
+        subject: 'Hello', // Subject line
+        html: html
+      };
+
+      console.log("[pp]")
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      });
+    }
+  });
+})
