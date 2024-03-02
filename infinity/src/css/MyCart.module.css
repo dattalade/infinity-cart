@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.cart>* {
+  margin-bottom: 7%;
+}
+
+.cart>*:last-child {
+  margin-bottom: 1%;
+}
+
+.font {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+.empty-page {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  font-family: 'Poppins', sans-serif;
+  color: red;
+  top: 50%;
+  width: 100%;
+  /* background-color: greenyellow; */
+}
+
+.loading-progress {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  /* background-color: greenyellow; */
+}

@@ -1,0 +1,45 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile {
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hover-comp {
+  cursor: pointer;
+}
+
+.width {
+  width: 350px;
+  margin-bottom: 30px;
+  margin-left: 2%;
+}
+
+.widths {
+  width: 350px;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.wishFlex
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.font {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}

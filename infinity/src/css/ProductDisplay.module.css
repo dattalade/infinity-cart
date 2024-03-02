@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+  background-color: whitesmoke;
+}
+
+.font {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.upperCase {
+  text-transform: uppercase;
+}
+
+.loading-progress {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  /* background-color: greenyellow; */
+}
+
+.hover-comp {
+  cursor: pointer;
+}
+
+.make-grid {
+  display: grid;
+  grid-template-areas: "first second" "third fourth";
+  grid-gap: 1px;
+}
+
+.first {
+  grid-area: first;
+  height: 100%;
+}
+
+.second {
+  grid-area: second;
+  height: 100%;
+}
+
+.third {
+  grid-area: third;
+  height: 100%;
+}
+
+.fourth {
+  grid-area: fourth;
+  height: 100%;
+}

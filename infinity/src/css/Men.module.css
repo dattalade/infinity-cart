@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*
+{
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 769px)
+{
+  .top
+  {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3%;
+    width: 100%;
+    /* background-color: red; */
+  }
+
+  .hover-comp:hover
+  {
+    cursor: pointer;
+  }
+
+  .top > *
+  {
+    margin-left: 2%; 
+  }
+
+  .top > :first-child
+  {
+    margin-left: 0%;
+  }
+
+  .font, .addrembuttons
+  {
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+  .addWishList, .removeWishList
+  {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+  }
+
+  .empty-page
+  {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    color: red;
+    top: 50%;
+    width: 100%;
+    /* background-color: greenyellow; */
+  }
+
+  .loading-progress
+  {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    /* background-color: greenyellow; */
+  }
+}
