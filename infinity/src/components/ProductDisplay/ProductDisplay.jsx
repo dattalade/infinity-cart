@@ -92,14 +92,40 @@ const ProductDisplay = () => {
   }, [itemId, sizeClick, apparel])
 
   const makeWishlist = async () => {
-    await axios.post("https://infinity-cart.onrender.com/makeWishlist", { id: itemId, jwtToken: cookies.get('token') })
-      .then((response) => {
-        console.log(response.data)
-        setIsWishlist(response.data)
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    if (cookies.get('token') === undefined) {
+      toast.warn("Login to continue",
+        {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          style:
+          {
+            fontFamily: "'Noto Sans', sans-serif",
+            textTransform: "uppercase"
+          },
+          onOpen: () => {
+            setTimeout(() => {
+              nav('/login');
+            }, 3000);
+          },
+          onClose: () => {
+            clearTimeout();
+          }
+        });
+    }
+    else {
+      await axios.post("https://infinity-cart.onrender.com/makeWishlist", { id: itemId, jwtToken: cookies.get('token') })
+        .then((response) => {
+          console.log(response.data)
+          setIsWishlist(response.data)
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 
   const sizeChange = (size, quantity) => {
