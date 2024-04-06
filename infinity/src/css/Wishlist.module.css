@@ -1,4 +1,3 @@
-
 * {
   padding: 0;
   margin: 0;
@@ -13,6 +12,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &::-webkit-scrollbar {
+    width: 0.1rem;
+
+    &-thumb {
+      background-color: #938e8e;
+      width: 0.1rem;
+    }
+  }
 }
 
 .hover-comp {
@@ -31,8 +39,7 @@
   padding: 0;
 }
 
-.wishFlex
-{
+.wishFlex {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
