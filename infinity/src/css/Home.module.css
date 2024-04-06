@@ -1,25 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
-*
-{
+* {
   margin: 0;
   padding: 0;
 }
 
-body
-{
+body {
   line-height: 23px;
+  overflow: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 0.1rem;
+
+    &-thumb {
+      background-color: #938e8e;
+      width: 0.1rem;
+    }
+  }
 }
 
-.fonts
-{
+.fonts {
   font-family: 'Josefin Sans', sans-serif;
   color: white;
   font-size: larger;
 }
 
-.gridBox
-{
+.gridBox {
   display: flex;
   flex-wrap: wrap;
 }
