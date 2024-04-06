@@ -203,11 +203,6 @@ const Profile = () => {
                     <Avatar className={styles['hover-comp']} sx={{ width: 70, height: 70 }}> <CameraAltOutlinedIcon /> </Avatar>
                   </div>
                   <>&nbsp;</>
-                  {/* <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <Tooltip title="Change Picture">
-                  <ModeEditOutlineOutlinedIcon className={styles['hover-comp']} />
-                </Tooltip>
-              </div> */}
                 </div>
               </div>
               <div style={{ width: "96%", padding: "2%", display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>

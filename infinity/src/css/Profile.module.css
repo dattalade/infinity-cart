@@ -4,17 +4,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
-  &::-webkit-scrollbar {
-    width: 0.1rem;
-
-    &-thumb {
-      background-color: #938e8e;
-      width: 0.1rem;
-    }
-  }
-}
-
 .profile {
   width: 100%;
   height: 100%;
@@ -23,6 +12,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &::-webkit-scrollbar {
+    width: 0.1rem;
+
+    &-thumb {
+      background-color: #938e8e;
+      width: 0.1rem;
+    }
+  }
 }
 
 .hover-comp {
