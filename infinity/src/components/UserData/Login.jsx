@@ -69,7 +69,7 @@ const Login = () => {
           });
       }
       else {
-        cookies.set('token', response.data.token, { httpOnly: true, secure: true })
+        cookies.set('token', response.data.token, { httpOnly: true })
         toast.success(`${response.data.type} ${response.data.message}`,
           {
             position: 'top-right',
