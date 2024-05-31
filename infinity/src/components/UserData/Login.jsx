@@ -45,7 +45,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    axios.post('https://infinity-cart.onrender.com/login', formData, 
+    axios.post('https://infinity-cart.onrender.com/login', formData,
       // { 
       // headers: {
       //   'Access-Control-Allow-Origin': 'https://infinity-cart.vercel.app/',
@@ -69,7 +69,7 @@ const Login = () => {
           });
       }
       else {
-        cookies.set('token', response.data.token)
+        cookies.set('token', response.data.token, { httpOnly: true, secure: true, sameSite: 'strict' })
         toast.success(`${response.data.type} ${response.data.message}`,
           {
             position: 'top-right',
